@@ -81,6 +81,8 @@ Ocean temperature increase leads to an approximate decrease in kelp elongation.
 kelp_model <- lm(
   kelp_elong ~ temp_c,
   data = kelp)
+# looking at model results 
+summary(kelp_model)
 # looking at diagnostics 
 par(mfrow = c(2,2)) # creating 2 x 2 grid
 plot(kelp_model) # plotting diagnostics 
@@ -107,5 +109,26 @@ kelp_correlation
 ```
 
 #### d. Results communication
+
+To evaluate the strength of the relationship between between temperature and giant kelp frond elongation rate I used a Pearson's correlation test ($r$) due to the model matching assumptions of linearity through approximate normality and homoscedasticity and no outliers having an influence on the model coefficients. We found a moderate-strong relationship between ocean temperature and kelp elongation (Pearson's r = -0.69, 95% CI $[-0.84, -0.45]$,  t(30) = -5.19, p < 0.001, alpha = 0.05). This indicates that there is a negative relationship between temperature and kelp elongation where for every 1 $^{\circ}$C increase, kelp elongation decreases by 0.43 cm day^-1^.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 

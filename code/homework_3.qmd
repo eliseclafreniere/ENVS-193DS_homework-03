@@ -61,15 +61,51 @@ ggplot(kelp, # from data source
   labs(
     x = "Temperature (°C)",
     y = "Kelp Elongation (cm/day)", 
-    title = "Giant kelp frond elongation rate in \n response to ocean temperature"
+    title = "Giant kelp frond elongation rate in
+response to ocean temperature"
   ) +
   # adding theme 
   theme_minimal()
 ```
 
+Ocean temperature increase leads to an approximate decrease in kelp elongation. 
 
+#### c. Check your assumptions and run your test
 
+##### Checking assumptions for Pearson's correlation (r)
 
+```{r}
+#| fig-width: 9
+#| fig-height: 8
+# writing out model in code
+kelp_model <- lm(
+  kelp_elong ~ temp_c,
+  data = kelp)
+# looking at diagnostics 
+par(mfrow = c(2,2)) # creating 2 x 2 grid
+plot(kelp_model) # plotting diagnostics 
+```
 
+**Diagnostic Assessment**
+
+- **Residuals vs Fitted & Scale-Location:** The residuals vs fitted and scale-location appear to be homoscedastic through the approximate match of the red line to the trend line and scatter of points in relation to the line, indicating constant variance. 
+- **QQ-Residiuals:** The QQ residuals points approximately follow the reference line with slight deviation at the left and right tails, allowing the assumption of normality to be met. 
+- **Residuals vs Leverage:** No outliers are past Cook's distance, indicating that outliers are not influencing the model coefficient estimates. 
+
+Since the assumptions of normality and homoscedasticity are met, and no influential outliers are present, a linear model framework is appropriate for this data, validating the use of a Pearson's correlation test ($r$).
+
+##### Running a Pearson's correlation test (r)
+
+```{r}
+# creating a new object to display correlation test results
+kelp_correlation <- cor.test(kelp$temp_c,
+                             kelp$kelp_elong, 
+                             # pearson's correlation
+                             method = "pearson")
+# viewing correlation test results 
+kelp_correlation
+```
+
+#### d. Results communication
 
 

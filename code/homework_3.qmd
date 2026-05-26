@@ -36,5 +36,40 @@ You conduct a field study in which you track giant kelp individuals growing in d
 
 #### a. An appropriate test
 
-The appropriate tests to determine the strength of the relationship between temperature and giant kelp frond elongation rate will be correlation tests, specifically Pearson's correlation ($r$) or a Spearman's rank correlation ($\rho$) test. Pearson's correlation ($r$) evaluates a linear relationship between the continuous variables and assumes normality of the data, whereas Spearman's rank correlation ($\rho$) assesses the monotonic relationship by ranking the data points. Since biological growth rates like kelp elongation often do not follow a typical linear pattern, Spearman's rank correlation ($\rho$) may provide a more accurate measure of the relationship strength. 
+The appropriate tests to determine the strength of the relationship between ocean temperature and giant kelp frond elongation rate are Pearson's correlation ($r$) and Spearman's rank correlation ($\rho$) test. Pearson's correlation ($r$) evaluates a linear relationship between the continuous variables and assumes normality of the data, whereas Spearman's rank correlation ($\rho$) assesses the monotonic relationship by ranking the data points. Since biological growth rates like kelp elongation often do not follow a typical linear pattern, Spearman's rank correlation ($\rho$) may provide a more accurate measure of the relationship strength. 
+
+#### b. Create a visualization 
+
+```{r}
+# base layer: ggplot
+ggplot(kelp, # from data source
+       mapping = aes(
+         x = temp_c, # x axis temp
+         y = kelp_elong # y axis elongation
+       )) +
+  # first layer : data points showing individual observation 
+  geom_point(size = 2, 
+             alpha = 0.7,
+             color = "palegreen4") + # adding custom color 
+  # adding a linear trend line
+  # adding ribbon to represent confidence interval 
+  geom_smooth(method = "lm",
+              color = "sienna",
+              fill = "gray",
+              alpha = 0.3) +
+  # renaming axes, adding a title 
+  labs(
+    x = "Temperature (°C)",
+    y = "Kelp Elongation (cm/day)", 
+    title = "Giant kelp frond elongation rate in \n response to ocean temperature"
+  ) +
+  # adding theme 
+  theme_minimal()
+```
+
+
+
+
+
+
 

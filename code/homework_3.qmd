@@ -1,9 +1,14 @@
 ---
-title: "homework_3"
+title: "Homework 3"
 format: pdf
 author: "Elise LaFreniere"
 date: 05-28-2026
+execute: 
+  message: false
+  warning: false 
 ---
+
+# Part 1. Set up tasks
 
 ```{r}
 #| label: packages-and-data 
@@ -12,7 +17,24 @@ library(tidyverse)
 library(janitor)
 library(here)
 
+# reading in kelp data 
+kelp <- read.csv(
+  here("data", "temp-kelp.csv")
+)
 
-
+# reading in personal data finalized
 ```
+
+# Part 2. Problems 
+
+## Problem 1. Giant kelp fronds 
+Climate change threatens all ecosystems, including giant kelp (*Macrocystis pyrifera*) forests.
+
+You are interested in the potential relationship between ocean temperature (measured in $^{\circ}$C) and giant kelp frond elongation rate (also known as growth rate, measured in cm day^-1^).
+
+You conduct a field study in which you track giant kelp individuals growing in different temperatures (on average) and measure their elongation rates. Admittedly, this is not a perfect study, but you do the best with what you have!
+
+#### a. An appropriate test
+
+The appropriate tests to determine the strength of the relationship between temperature and giant kelp frond elongation rate will be correlation tests, specifically Pearson's correlation ($r$) or a Spearman's rank correlation ($\rho$) test. Pearson's correlation ($r$) evaluates a linear relationship between the continuous variables and assumes normality of the data, whereas Spearman's rank correlation ($\rho$) assesses the monotonic relationship by ranking the data points. Since biological growth rates like kelp elongation often do not follow a typical linear pattern, Spearman's rank correlation ($\rho$) may provide a more accurate measure of the relationship strength. 
 

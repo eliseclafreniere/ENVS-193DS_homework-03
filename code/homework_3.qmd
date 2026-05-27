@@ -28,9 +28,10 @@ personal_data <- read.csv(
 )
 ```
 
-# Part 2. Problems 
+# Part 2. Problems
 
-## Problem 1. Giant kelp fronds 
+## Problem 1. Giant kelp fronds
+
 Climate change threatens all ecosystems, including giant kelp (*Macrocystis pyrifera*) forests.
 
 You are interested in the potential relationship between ocean temperature (measured in $^{\circ}$C) and giant kelp frond elongation rate (also known as growth rate, measured in cm day^-1^).
@@ -39,9 +40,9 @@ You conduct a field study in which you track giant kelp individuals growing in d
 
 #### a. An appropriate test
 
-The appropriate tests to determine the strength of the relationship between ocean temperature and giant kelp frond elongation rate are Pearson's correlation ($r$) and Spearman's rank correlation ($\rho$) test. Pearson's correlation ($r$) evaluates a linear relationship between the continuous variables and assumes normality of the data, whereas Spearman's rank correlation ($\rho$) assesses the monotonic relationship by ranking the data points. Since biological growth rates like kelp elongation often do not follow a typical linear pattern, Spearman's rank correlation ($\rho$) may provide a more accurate measure of the relationship strength. 
+The appropriate tests to determine the strength of the relationship between ocean temperature and giant kelp frond elongation rate are Pearson's correlation ($r$) and Spearman's rank correlation ($\rho$) test. Pearson's correlation ($r$) evaluates a linear relationship between the continuous variables and assumes normality of the data, whereas Spearman's rank correlation ($\rho$) assesses the monotonic relationship by ranking the data points. Since biological growth rates like kelp elongation often do not follow a typical linear pattern, Spearman's rank correlation ($\rho$) may provide a more accurate measure of the relationship strength.
 
-#### b. Create a visualization 
+#### b. Create a visualization
 
 ```{r}
 # base layer: ggplot
@@ -71,7 +72,7 @@ response to ocean temperature"
   theme_minimal()
 ```
 
-Ocean temperature increase leads to an approximate decrease in kelp elongation. 
+Ocean temperature increase leads to an approximate decrease in kelp elongation.
 
 #### c. Check your assumptions and run your test
 
@@ -93,9 +94,9 @@ plot(kelp_model) # plotting diagnostics
 
 **Diagnostic Assessment**
 
-- **Residuals vs Fitted & Scale-Location:** The residuals vs fitted and scale-location appear to be homoscedastic through the approximate match of the red line to the trend line and scatter of points in relation to the line, indicating constant variance. 
-- **QQ-Residiuals:** The QQ residuals points approximately follow the reference line with slight deviation at the left and right tails, allowing the assumption of normality to be met. 
-- **Residuals vs Leverage:** No outliers are past Cook's distance, indicating that outliers are not influencing the model coefficient estimates. 
+-   **Residuals vs Fitted & Scale-Location:** The residuals vs fitted and scale-location appear to be homoscedastic through the approximate match of the red line to the trend line and scatter of points in relation to the line, indicating constant variance.
+-   **QQ-Residiuals:** The QQ residuals points approximately follow the reference line with slight deviation at the left and right tails, allowing the assumption of normality to be met.
+-   **Residuals vs Leverage:** No outliers are past Cook's distance, indicating that outliers are not influencing the model coefficient estimates.
 
 Since the assumptions of normality and homoscedasticity are met, and no influential outliers are present, a linear model framework is appropriate for this data, validating the use of a Pearson's correlation test ($r$).
 
@@ -113,13 +114,13 @@ kelp_pearson
 
 #### d. Results communication
 
-To evaluate the strength of the relationship between between temperature and giant kelp frond elongation rate I used a Pearson's correlation test ($r$) due to the model matching assumptions of linearity through approximate normality and homoscedasticity and no outliers being determined to influence the model coefficients. We found a moderate-strong relationship between ocean temperature and kelp elongation (Pearson's r = -0.69, 95% CI $[-0.84, -0.45]$, t(30) = -5.19, p < 0.001, alpha = 0.05). This indicates that there is a negative relationship between temperature and kelp elongation where for every 1 $^{\circ}$C increase, kelp elongation decreases by 0.43 cm day^-1^.
+To evaluate the strength of the relationship between between temperature and giant kelp frond elongation rate I used a Pearson's correlation test ($r$) due to the model matching assumptions of linearity through approximate normality and homoscedasticity and no outliers being determined to influence the model coefficients. We found a moderate-strong relationship between ocean temperature and kelp elongation (Pearson's r = -0.69, 95% CI $[-0.84, -0.45]$, t(30) = -5.19, p \< 0.001, alpha = 0.05). This indicates that there is a negative relationship between temperature and kelp elongation where for every 1 $^{\circ}$C increase, kelp elongation decreases by 0.43 cm day^-1^.
 
-#### e. Test implications 
+#### e. Test implications
 
-Our analysis confirms a significant, moderate-strong negative relationship between ocean warming and giant kelp productivity, with kelp frond elongation rates decrease by 0.43 cm day^-1^ for every 1 $^{\circ}$C increase. This decline indicates that increasing ocean temperatures are directly damaging giant kelp habitats, which without proper action may result in greater loss of biodiversity as species that rely on giant kelp forests become at risk. To protect this ecosystem, a prioritization of restoration and monitoring of giant kelp habitats experiencing high thermal stress. 
+Our analysis confirms a significant, moderate-strong negative relationship between ocean warming and giant kelp productivity, with kelp frond elongation rates decrease by 0.43 cm day^-1^ for every 1 $^{\circ}$C increase. This decline indicates that increasing ocean temperatures are directly damaging giant kelp habitats, which without proper action may result in greater loss of biodiversity as species that rely on giant kelp forests become at risk. To protect this ecosystem, a prioritization of restoration and monitoring of giant kelp habitats experiencing high thermal stress.
 
-#### f. Double check your own work 
+#### f. Double check your own work
 
 ##### Running a Spearman's rank correlation test
 
@@ -133,13 +134,14 @@ kelp_spearman <- cor.test(kelp$temp_c,
 kelp_spearman
 ```
 
-For both tests I found a moderate-strong relationship between ocean temperature and kelp elongation through the $\rho$ and $r$ value of -0.69, and a rejection of the null hypothesis with a p < 0.001. Indicating that whether the data is analyzed through the monotonic relationship or linearly, we get the same conclusion that increasing ocean temperatures correlate with a decline in in kelp growth. 
+For both tests I found a moderate-strong relationship between ocean temperature and kelp elongation through the $\rho$ and $r$ value of -0.69, and a rejection of the null hypothesis with a p \< 0.001. Indicating that whether the data is analyzed through the monotonic relationship or linearly, we get the same conclusion that increasing ocean temperatures correlate with a decline in in kelp growth.
 
 ## Problem 2. Personal data
 
 #### a. Updating visualizations
 
 **Figure A: Productivity Score By Location**
+
 ```{r}
 #| echo: false
 # creating new object from my personal data 
@@ -181,6 +183,7 @@ theme(legend.position = "none")
 ```
 
 **Figure B: Productivity Score By Breaks**
+
 ```{r}
 #| echo: false
 # base layer: ggplot
@@ -209,19 +212,18 @@ scale_color_manual(values = c("home" = "orchid3",
 theme_minimal()
 ```
 
-#### b. Captions 
+#### b. Captions
 
 **Figure A: Productivity scores differ across study environments.** Jittered points represent individual observations from self reported study sessions (orchid: home, green: library), with data current through May 26, 2026. Productivity is evaluated on a tiered percentage scale where 1 indicates 50% or less productivity, 2 indicates 50–67%, 3 indicates 67–83%, and 4 indicates 83% or more. Overlaid box plots display a summary of the data, where horizontal bolded lines indicate median productivity score for each location, while the upper and lower box boundaries represent the interquartile range (IQR).
 
 **Figure B: Productivity scores differ across varying break durations and study environments** Individual points represent distinct recorded study sessions, with data current through May 26, 2026. Productivity is evaluated on a tiered percentage scale where 1 indicates 50% or less productivity, 2 indicates 50–67%, 3 indicates 67–83%, and 4 indicates 83% or more. Point colors correspond to the session location (orchid: home, pale green: library), plotted continuously along the x-axis to show how the duration of breaks taken (in minutes) relates to subsequent productivity ratings (1–4).
 
+## Problem 3. Affective Visualization
 
+#### a. Describe in words what an affective visualization could look like for your personal data (3-5 sentences).
 
+An affective visualization for my personal data may look like drawings of my comparison locations within my visualization. Through utilizing the outline of my boxplots generated in Figure A, I can use the IQR line of the home data set as the roof peak, and the median line for both data sets as details of the buildings. For the home drawing I will include details of my current home to indicate the personal nature of this data. For the library drawing I will attempt to make it look similar to the outside of the UCSB Davidson library to again depict how this data correlates to my life. Individual data points will be indicated by pigeons (home) and seagulls (library).
 
+#### b. Create a sketch (on paper) of your idea.
 
-
-
-
-
-
-
+![](images/clipboard-2363372302.jpeg){width="440"}

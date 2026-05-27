@@ -246,12 +246,16 @@ The content of my piece displays my home in Isla Vista and the UCSB Davidson lib
 
 The authors used a two-way ANOVA test to compare the mean of the florescence (Fv / Fm) based on the treatment given (drought and fungal inoculation, drought without inoculation, watering and inoculation, and watering without inoculation). In running a two-way ANOVA the authors were able to demonstrate that there was a difference in means between the groups through having a p-value < 0.001. In understanding how fluorescence is impacted by treatment, the authors of this journal are able to address whether increased drought stress is causing decreased resistance to pathogens in *Arctostaphylos glauca*.
 
-**Figure 2**
+**Figure 2: B**
 
 ![](images/clipboard-3950525998.png)
 
 #### b. Visual clarity
 
+The figure shown depicts nonlinear trend lines of the florescence based on treatment, differentiated through different color and line types, which are indicated in a legend. The x and y axes are in a logical position, with time being on the x-axis, allowing the change in florescence as time goes on (in weeks) to be clear to the viewer. Additionally each line depicts $\pm$ SE bars around the florescence values. Underlying data is not shown, which if displayed may have provided more clarity for the viewer to what is influencing the figure lines. 
+
 #### c. Aesthetic clarity
+
+
 
 #### d. Recommendations

@@ -23,6 +23,9 @@ kelp <- read.csv(
 )
 
 # reading in personal data finalized
+personal_data <- read.csv(
+  here("data", "personal_data.csv")
+)
 ```
 
 # Part 2. Problems 
@@ -99,20 +102,38 @@ Since the assumptions of normality and homoscedasticity are met, and no influent
 ##### Running a Pearson's correlation test (r)
 
 ```{r}
-# creating a new object to display correlation test results
-kelp_correlation <- cor.test(kelp$temp_c,
+# creating a new object to display correlation test results for pearson's correlation test
+kelp_pearson <- cor.test(kelp$temp_c,
                              kelp$kelp_elong, 
                              # pearson's correlation
                              method = "pearson")
 # viewing correlation test results 
-kelp_correlation
+kelp_pearson
 ```
 
 #### d. Results communication
 
-To evaluate the strength of the relationship between between temperature and giant kelp frond elongation rate I used a Pearson's correlation test ($r$) due to the model matching assumptions of linearity through approximate normality and homoscedasticity and no outliers having an influence on the model coefficients. We found a moderate-strong relationship between ocean temperature and kelp elongation (Pearson's r = -0.69, 95% CI $[-0.84, -0.45]$,  t(30) = -5.19, p < 0.001, alpha = 0.05). This indicates that there is a negative relationship between temperature and kelp elongation where for every 1 $^{\circ}$C increase, kelp elongation decreases by 0.43 cm day^-1^.
+To evaluate the strength of the relationship between between temperature and giant kelp frond elongation rate I used a Pearson's correlation test ($r$) due to the model matching assumptions of linearity through approximate normality and homoscedasticity and no outliers being determined to influence the model coefficients. We found a moderate-strong relationship between ocean temperature and kelp elongation (Pearson's r = -0.69, 95% CI $[-0.84, -0.45]$, t(30) = -5.19, p < 0.001, alpha = 0.05). This indicates that there is a negative relationship between temperature and kelp elongation where for every 1 $^{\circ}$C increase, kelp elongation decreases by 0.43 cm day^-1^.
 
+#### e. Test implications 
 
+Our analysis confirms a significant, moderate-strong negative relationship between ocean warming and giant kelp productivity, with kelp frond elongation rates decrease by 0.43 cm day^-1^ for every 1 $^{\circ}$C increase. This decline indicates that increasing ocean temperatures are directly damaging giant kelp habitats, which without proper action may result in greater loss of biodiversity as species that rely on giant kelp forests become at risk. To protect this ecosystem, a prioritization of restoration and monitoring of giant kelp habitats experiencing high thermal stress. 
+
+#### f. Double check your own work 
+
+##### Running a Spearman's rank correlation test
+
+```{r}
+# creating a new object to display correlation test results for spearman's rank test
+kelp_spearman <- cor.test(kelp$temp_c,
+                             kelp$kelp_elong, 
+                             # spearman's correlation
+                             method = "spearman")
+# viewing correlation test results 
+kelp_spearman
+```
+
+For both tests I found a moderate-strong relationship between ocean temperature and kelp elongation through the $\rho$ and $r$ value of -0.69, and a rejection of the null hypothesis with a p < 0.001. Indicating that whether the data is analyzed through the monotonic relationship or linearly, we get the same conclusion that increasing ocean temperatures correlate with a decline in in kelp growth. 
 
 
 

@@ -14,19 +14,21 @@ Lastly this repo looks at and critiques the figures utilized in the following st
 
 ## Data and file organization 
 
+```text
 ├── README.md
 ├── code
 │   ├── homework_3.pdf
 │   ├── homework_3.qmd
 │   ├── images
-|     └── draft.jpeg
-|     └── figure.png
-|     └── sketch.jpeg
+│   │   └── draft.jpeg
+│   │   └── figure.png
+│   │   └── sketch.jpeg
 ├── data
 │   └── personal_data.csv
 │   └── temp-kelp.csv
 └── ENVS-193DS_homework-03.Rproj
 └── .RData
+```
 
 ## Rendered output
 

@@ -139,14 +139,17 @@ For both tests I found a moderate-strong relationship between ocean temperature 
 
 #### a. Updating visualizations
 
+**Figure A: Productivity Score By Location**
 ```{r}
+#| echo: false
 # creating new object from my personal data 
 personal_clean <- personal_data |>
 clean_names() |>
 # selecting for desired columns
 select(productivity_scale,
 location,
-duration_minutes)
+duration_minutes,
+breaks_minutes)
 # base layer: ggplot
 ggplot(personal_clean,
 # making x axis location and y axis productivity
@@ -163,8 +166,9 @@ geom_jitter(height = 0.1,
 # changing x and y axis name, adding a title
 labs(
   x = "Study Location",
-  y = "Productivity Score (1-4)",
-  title = "Location Impact On Productivity") +
+  y = "Productivity Score (1 - 4)",
+  title = "Location impact on productivity",
+  caption = "Dataset last updated: 2026-05-26.") +
 # changing colors of location
 scale_color_manual(values = c(
   "library " = "palegreen4",
@@ -176,12 +180,14 @@ theme_minimal() +
 theme(legend.position = "none") 
 ```
 
+**Figure B: Productivity Score By Breaks**
 ```{r}
+#| echo: false
 # base layer: ggplot
 ggplot(personal_clean,
 # making x axis total duration, y axis productivity scale
 # coloring based on location
-mapping = aes(x = duration_minutes,
+mapping = aes(x = breaks_minutes,
               y = productivity_scale,
               color = location)) +
 # first layer: geom_point
@@ -192,9 +198,10 @@ geom_point(size = 3,
                                      height = 0.15)) +
 # renaming axis, adding a title
 labs(
-  x = "Duration (minutes)",
-  y = "Productivity Scale (1-4)",
-  title = "Location Impact On Productivity") +
+  x = "Breaks (minutes)",
+  y = "Productivity Scale (1 - 4)",
+  title = "Duration of break (min) impact on productivity",
+  caption = "Dataset last updated: 2026-05-26.") +
 # changing colors
 scale_color_manual(values = c("home" = "orchid3",
                               "library " = "palegreen4")) +
@@ -202,8 +209,11 @@ scale_color_manual(values = c("home" = "orchid3",
 theme_minimal()
 ```
 
+#### b. Captions 
 
+**Figure A: Productivity scores differ across study environments.** Jittered points represent individual observations from self reported study sessions (orchid: home, green: library), with data current through May 26, 2026. Productivity is evaluated on a tiered percentage scale where 1 indicates 50% or less productivity, 2 indicates 50–67%, 3 indicates 67–83%, and 4 indicates 83% or more. Overlaid box plots display a summary of the data, where horizontal bolded lines indicate median productivity score for each location, while the upper and lower box boundaries represent the interquartile range (IQR).
 
+**Figure B: Productivity scores differ across varying break durations and study environments** Individual points represent distinct recorded study sessions, with data current through May 26, 2026. Productivity is evaluated on a tiered percentage scale where 1 indicates 50% or less productivity, 2 indicates 50–67%, 3 indicates 67–83%, and 4 indicates 83% or more. Point colors correspond to the session location (orchid: home, pale green: library), plotted continuously along the x-axis to show how the duration of breaks taken (in minutes) relates to subsequent productivity ratings (1–4).
 
 
 

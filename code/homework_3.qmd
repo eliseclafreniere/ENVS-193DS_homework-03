@@ -256,6 +256,9 @@ The figure shown depicts nonlinear trend lines of the florescence based on treat
 
 #### c. Aesthetic clarity
 
+The authors minimized visual clutter by not displaying underlying values, which may have made the figure harder to interpret or read due to four treatment lines being displayed. Despite this, the $\pm$ SE bars add some clutter as bars overlap, making some treatments more difficult to interpret. Regarding the data:ink ratio, the data is slightly more prevalent as the lines and $\pm$ SE bars are the dominant feature of the figure, but the ink is still notable yet kept minimal in the location of the legend being strategically placed in the bottom left of the figure. 
 
 
 #### d. Recommendations
+
+I would recommend for the authors to change some of the colors of their trend lines to make more visibly appealing. In having three different colors and three different line types shown it makes this visual aspect of the figure unappealing to the viewer. Additionally the authors may consider increasing the height of the figure so that there is less overlap between the SE bars. Also including the points in which the SE bars reference may help the viewers better understand the data. Finally, the authors may consider removing the legend and instead describing which treatment each color corresponds to in the figure caption to improve the aesthetics of the figure. 

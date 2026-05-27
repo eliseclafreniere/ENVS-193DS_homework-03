@@ -234,8 +234,24 @@ An affective visualization for my personal data may look like drawings of my com
 
 #### d. Write an artist statement.
 
-The content of my piece displays my home in Isla Vista and the UCSB Davidson library overlaid on the boxplots of my data. I then included birds to represent the individual observations. I was inspired by Jill Pelto and how she creates art inspired by what her statistical analysis describes.The medium of my art is a digital drawing, done on the platform Procreate. 
+The content of my piece displays my home in Isla Vista and the UCSB Davidson library overlaid on the boxplots of my data. I then included birds to represent the individual observations. I was inspired by Jill Pelto and how she creates art inspired by what her statistical analysis describes.The medium of my art is a digital drawing, done on the platform Procreate.
 
 #### e. Prep your materials to share in class.
 
-[View](https://docs.google.com/presentation/d/1imPYK9P_zB-ZTf_L0zFt01430IE0YEfpbeRR4NiWeAY/edit?usp=sharing) 
+[View slideshow](https://docs.google.com/presentation/d/1imPYK9P_zB-ZTf_L0zFt01430IE0YEfpbeRR4NiWeAY/edit?usp=sharing)
+
+## Problem 4. Statistical critique
+
+#### a. Revisit and summarize
+
+The authors used a two-way ANOVA test to compare the mean of the florescence (Fv / Fm) based on the treatment given (drought and fungal inoculation, drought without inoculation, watering and inoculation, and watering without inoculation). In running a two-way ANOVA the authors were able to demonstrate that there was a difference in means between the groups through having a p-value < 0.001. In understanding how fluorescence is impacted by treatment, the authors of this journal are able to address whether increased drought stress is causing decreased resistance to pathogens in *Arctostaphylos glauca*.
+
+**Figure 2**
+
+![](images/clipboard-3950525998.png)
+
+#### b. Visual clarity
+
+#### c. Aesthetic clarity
+
+#### d. Recommendations

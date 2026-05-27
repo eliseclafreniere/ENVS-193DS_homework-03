@@ -1,8 +1,10 @@
 ---
 title: "Homework 3"
-format: pdf
 author: "Elise LaFreniere"
 date: 05-28-2026
+format:
+  pdf:
+    toc: true # use this to display a table of contents
 execute: 
   message: false
   warning: false 

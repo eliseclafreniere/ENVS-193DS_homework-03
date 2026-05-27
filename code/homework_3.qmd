@@ -135,10 +135,72 @@ kelp_spearman
 
 For both tests I found a moderate-strong relationship between ocean temperature and kelp elongation through the $\rho$ and $r$ value of -0.69, and a rejection of the null hypothesis with a p < 0.001. Indicating that whether the data is analyzed through the monotonic relationship or linearly, we get the same conclusion that increasing ocean temperatures correlate with a decline in in kelp growth. 
 
+## Problem 2. Personal data
 
+#### a. Updating visualizations
 
+```{r}
+# creating new object from my personal data 
+personal_clean <- personal_data |>
+clean_names() |>
+# selecting for desired columns
+select(productivity_scale,
+location,
+duration_minutes)
+# base layer: ggplot
+ggplot(personal_clean,
+# making x axis location and y axis productivity
+  mapping = aes(x = location,
+                y = productivity_scale,
+                # coloring based on location
+                color = location)) +
+# first layer: boxplot
+geom_boxplot() +
+# second layer: jitter
+geom_jitter(height = 0.1,
+            width = 0.25,
+            alpha = 0.7) +
+# changing x and y axis name, adding a title
+labs(
+  x = "Study Location",
+  y = "Productivity Score (1-4)",
+  title = "Location Impact On Productivity") +
+# changing colors of location
+scale_color_manual(values = c(
+  "library " = "palegreen4",
+  "home" = "orchid3"
+)) +
+# adding theme
+theme_minimal() +
+# removing legend
+theme(legend.position = "none") 
+```
 
-
+```{r}
+# base layer: ggplot
+ggplot(personal_clean,
+# making x axis total duration, y axis productivity scale
+# coloring based on location
+mapping = aes(x = duration_minutes,
+              y = productivity_scale,
+              color = location)) +
+# first layer: geom_point
+geom_point(size = 3,
+          alpha = 0.7,
+          # changing position to increase visibility of individual points
+          position = position_jitter(width = 0, 
+                                     height = 0.15)) +
+# renaming axis, adding a title
+labs(
+  x = "Duration (minutes)",
+  y = "Productivity Scale (1-4)",
+  title = "Location Impact On Productivity") +
+# changing colors
+scale_color_manual(values = c("home" = "orchid3",
+                              "library " = "palegreen4")) +
+# adding a theme
+theme_minimal()
+```
 
 
 

@@ -145,7 +145,6 @@ For both tests I found a moderate-strong relationship between ocean temperature 
 **Figure A: Productivity Score By Location**
 
 ```{r}
-#| echo: false
 # creating new object from my personal data 
 personal_clean <- personal_data |>
 clean_names() |>
@@ -187,7 +186,6 @@ theme(legend.position = "none")
 **Figure B: Productivity Score By Breaks**
 
 ```{r}
-#| echo: false
 # base layer: ggplot
 ggplot(personal_clean,
 # making x axis total duration, y axis productivity scale
@@ -228,7 +226,7 @@ An affective visualization for my personal data may look like drawings of my com
 
 #### b. Create a sketch (on paper) of your idea.
 
-![](images/clipboard-2363372302.jpeg){width="440"}
+![](images/clipboard-2363372302.jpeg)
 
 #### c. Make a draft of your visualization.
 
@@ -236,7 +234,7 @@ An affective visualization for my personal data may look like drawings of my com
 
 #### d. Write an artist statement.
 
-The content of my piece displays my home in Isla Vista and the UCSB Davidson library overlaid on the boxplots of my data. I then included birds to represent the individual observations. I was inspired by Jill Pelto and how she creates art inspired by what her statistical analysis describes.The medium of my art is a digital drawing, done on the platform Procreate.
+The content of my piece displays my home in Isla Vista and the UCSB Davidson library overlaid on the box plots of my data. I then included birds to represent the individual observations. I was inspired by Jill Pelto and how she creates art inspired by what her statistical analysis describes.The medium of my art is a digital drawing, done on the platform Procreate.
 
 #### e. Prep your materials to share in class.
 
@@ -246,7 +244,7 @@ The content of my piece displays my home in Isla Vista and the UCSB Davidson lib
 
 #### a. Revisit and summarize
 
-The authors used a two-way ANOVA test to compare the mean of the florescence (Fv / Fm) based on the treatment given (drought and fungal inoculation, drought without inoculation, watering and inoculation, and watering without inoculation). In running a two-way ANOVA the authors were able to demonstrate that there was a difference in means between the groups through having a p-value < 0.001. In understanding how fluorescence is impacted by treatment, the authors of this journal are able to address whether increased drought stress is causing decreased resistance to pathogens in *Arctostaphylos glauca*.
+The authors used a two-way ANOVA test to compare the mean of the florescence (Fv / Fm) based on the treatment given (drought and fungal inoculation, drought without inoculation, watering and inoculation, and watering without inoculation). In running a two-way ANOVA the authors were able to demonstrate that there was a difference in means between the groups through having a p-value \< 0.001. In understanding how fluorescence is impacted by treatment, the authors of this journal are able to address whether increased drought stress is causing decreased resistance to pathogens in *Arctostaphylos glauca*.
 
 **Figure 2: B**
 
@@ -254,13 +252,12 @@ The authors used a two-way ANOVA test to compare the mean of the florescence (Fv
 
 #### b. Visual clarity
 
-The figure shown depicts nonlinear trend lines of the florescence based on treatment, differentiated through different color and line types, which are indicated in a legend. The x and y axes are in a logical position, with time being on the x-axis, allowing the change in florescence as time goes on (in weeks) to be clear to the viewer. Additionally each line depicts $\pm$ SE bars around the florescence values. Underlying data is not shown, which if displayed may have provided more clarity for the viewer to what is influencing the figure lines. 
+The figure shown depicts nonlinear trend lines of the florescence based on treatment, differentiated through different color and line types, which are indicated in a legend. The x and y axes are in a logical position, with time being on the x-axis, allowing the change in florescence as time goes on (in weeks) to be clear to the viewer. Additionally each line depicts $\pm$ SE bars around the florescence values. Underlying data is not shown, which if displayed may have provided more clarity for the viewer to what is influencing the figure lines.
 
 #### c. Aesthetic clarity
 
-The authors minimized visual clutter by not displaying underlying values, which may have made the figure harder to interpret or read due to four treatment lines being displayed. Despite this, the $\pm$ SE bars add some clutter as bars overlap, making some treatments more difficult to interpret. Regarding the data:ink ratio, the data is slightly more prevalent as the lines and $\pm$ SE bars are the dominant feature of the figure, but the ink is still notable yet kept minimal in the location of the legend being strategically placed in the bottom left of the figure. 
-
+The authors minimized visual clutter by not displaying underlying values, which may have made the figure harder to interpret or read due to four treatment lines being displayed. Despite this, the $\pm$ SE bars add some clutter as bars overlap, making some treatments more difficult to interpret. Regarding the data:ink ratio, the data is slightly more prevalent as the lines and $\pm$ SE bars are the dominant feature of the figure, but the ink is still notable yet kept minimal in the location of the legend being strategically placed in the bottom left of the figure.
 
 #### d. Recommendations
 
-I would recommend for the authors to change some of the colors of their trend lines to make more visibly appealing. In having three different colors and three different line types shown it makes this visual aspect of the figure unappealing to the viewer. Additionally the authors may consider increasing the height of the figure so that there is less overlap between the SE bars. Also including the points in which the SE bars reference may help the viewers better understand the data. Finally, the authors may consider removing the legend and instead describing which treatment each color corresponds to in the figure caption to improve the aesthetics of the figure. 
+I would recommend for the authors to change some of the colors of their trend lines to make more visibly appealing. In having three different colors and three different line types shown it makes this visual aspect of the figure unappealing to the viewer. Additionally the authors may consider increasing the height of the figure so that there is less overlap between the SE bars. Also including the points in which the SE bars reference may help the viewers better understand the data. Finally, the authors may consider removing the legend and instead describing which treatment each color corresponds to in the figure caption to improve the aesthetics of the figure.

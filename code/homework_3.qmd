@@ -116,7 +116,7 @@ Since the assumptions of continuous variables, linearity, normality, and indepen
 ##### Running a Pearson's correlation test (r)
 
 ```{r}
-# creating a new object to display correlation test results for pearson's correlation test
+# kelp_pearson to show parametric test
 kelp_pearson <- cor.test(kelp$temp_c,
                              kelp$kelp_elong, 
                              # pearson's correlation
@@ -138,7 +138,7 @@ Our analysis confirms a significant, moderate-strong negative relationship betwe
 ##### Running a Spearman's rank correlation test
 
 ```{r}
-# creating a new object to display spearman's rank test
+# kelp_spearman to display rank test
 kelp_spearman <- cor.test(kelp$temp_c,
                              kelp$kelp_elong, 
                              # spearman's correlation

@@ -57,12 +57,6 @@ ggplot(kelp, # from data source
   geom_point(size = 2, 
              alpha = 0.7,
              color = "palegreen4") + # adding custom color 
-  # adding a linear trend line
-  # adding ribbon to represent confidence interval 
-  geom_smooth(method = "lm",
-              color = "sienna",
-              fill = "gray",
-              alpha = 0.3) +
   # renaming axes, adding a title 
   labs(
     x = "Temperature (°C)",
@@ -81,26 +75,34 @@ Ocean temperature increase leads to an approximate decrease in kelp elongation.
 ##### Checking assumptions for Pearson's correlation (r)
 
 ```{r}
-#| fig-width: 9
-#| fig-height: 8
-# writing out model in code
-kelp_model <- lm(
-  kelp_elong ~ temp_c,
-  data = kelp)
-# looking at model results 
-summary(kelp_model)
-# looking at diagnostics 
-par(mfrow = c(2,2)) # creating 2 x 2 grid
-plot(kelp_model) # plotting diagnostics 
+# qq plot for kelp elongation data 
+qq_kelp <- ggplot(data = kelp, aes(sample = kelp_elong)) +
+  stat_qq(color = "palegreen4", alpha = 0.7) +
+  stat_qq_line(color = "orchid3", linewidth = 1) +
+  labs(title = "Normal Q-Q: Kelp Elongation", x = "Theoretical Quantiles", y = "Sample Quantiles") +
+  theme_minimal()
+# qq plot for ocean temperature
+qq_temp <- ggplot(data = kelp, aes(sample = temp_c)) +
+  stat_qq(color = "palegreen4", alpha = 0.7) +
+  stat_qq_line(color = "orchid3", linewidth = 1) +
+  labs(title = "Normal Q-Q: Ocean Temperature", x = "Theoretical Quantiles", y = "Sample Quantiles") +
+  theme_minimal()
+# looking at both plots 
+
+qq_kelp 
+
+qq_temp
+
 ```
 
-**Diagnostic Assessment**
+**Assumptions Assessment**
 
--   **Residuals vs Fitted & Scale-Location:** The residuals vs fitted and scale-location appear to be homoscedastic through the approximate match of the red line to the trend line and scatter of points in relation to the line, indicating constant variance.
--   **QQ-Residiuals:** The QQ residuals points approximately follow the reference line with slight deviation at the left and right tails, allowing the assumption of normality to be met.
--   **Residuals vs Leverage:** No outliers are past Cook's distance, indicating that outliers are not influencing the model coefficient estimates.
+-   **Continuous:**  Both ocean temperature (measured in $^{\circ}$C) and giant kelp frond elongation rate (measured in cm day^-1^) are numeric, continuous ratio-scale variables. This satisfies the primary data structure requirement for a parametric correlation test.
+-   **Linearity:** Visual inspection of the initial scatterplot shows a generally straight-line association between temperature and kelp growth rate. There is no clear evidence of severe quadratic or non-linear curvature, satisfying the assumption of linearity.
+-   **Normality:** Despite some deviance in tails of both QQ-plots, the points generally follow the reference line, allowing for the assumption of normality to be met.
+-   **Independent observations:** The data points were collected from distinct, individual giant kelp organisms tracked during a field study. Because measurements are not repeated on the same individuals over time or paired structurally, the assumption of independent observations is met.
 
-Since the assumptions of normality and homoscedasticity are met, and no influential outliers are present, a linear model framework is appropriate for this data, validating the use of a Pearson's correlation test ($r$).
+Since the assumptions of continuous variables, linearity, normality, and independent observations are met, the use of a Pearson's correlation test ($r$) is appropriate for the data.
 
 ##### Running a Pearson's correlation test (r)
 
@@ -116,7 +118,7 @@ kelp_pearson
 
 #### d. Results communication
 
-To evaluate the strength of the relationship between between temperature and giant kelp frond elongation rate I used a Pearson's correlation test ($r$) due to the model matching assumptions of linearity through approximate normality and homoscedasticity and no outliers being determined to influence the model coefficients. We found a moderate-strong relationship between ocean temperature and kelp elongation (Pearson's r = -0.69, 95% CI $[-0.84, -0.45]$, t(30) = -5.19, p \< 0.001, alpha = 0.05). This indicates that there is a negative relationship between temperature and kelp elongation where for every 1 $^{\circ}$C increase, kelp elongation decreases by 0.43 cm day^-1^.
+To evaluate the strength of the relationship between between temperature and giant kelp frond elongation rate I used a Pearson's correlation test ($r$) due to the model matching assumptions of linearity, normality, continuous variables, and indepedent observations. We found a moderate relationship between ocean temperature and kelp elongation (Pearson's r = -0.69, 95% CI $[-0.84, -0.45]$, t(30) = -5.19, p \< 0.001, alpha = 0.05). This indicates that there is a negative relationship between temperature and kelp elongation where for every 1 $^{\circ}$C increase, kelp elongation decreases by 0.43 cm day^-1^.
 
 #### e. Test implications
 
@@ -127,7 +129,7 @@ Our analysis confirms a significant, moderate-strong negative relationship betwe
 ##### Running a Spearman's rank correlation test
 
 ```{r}
-# creating a new object to display correlation test results for spearman's rank test
+# creating a new object to display spearman's rank test
 kelp_spearman <- cor.test(kelp$temp_c,
                              kelp$kelp_elong, 
                              # spearman's correlation
@@ -136,7 +138,7 @@ kelp_spearman <- cor.test(kelp$temp_c,
 kelp_spearman
 ```
 
-For both tests I found a moderate-strong relationship between ocean temperature and kelp elongation through the $\rho$ and $r$ value of -0.69, and a rejection of the null hypothesis with a p \< 0.001. Indicating that whether the data is analyzed through the monotonic relationship or linearly, we get the same conclusion that increasing ocean temperatures correlate with a decline in in kelp growth.
+A parametric Pearson's correlation test revealed a moderate negative linear relationship between ocean temperature and kelp elongation rate ($r$ = -0.69, 95% CI $[-0.84, -0.45]$, t(30) = -5.19, p \< 0.001, alpha = 0.05). Similarly, a non-parametric Spearman's rank correlation test confirmed a moderate negative monotonic relationship between ocean temperature and kelp elongation rate ($\rho$ = -0.69, S = 9216.1, p\< 0.001). Both tests result in a rejection of the null hypothesis ($\alpha$ = 0.05), indicating that whether the data are analyzed linearly or monotonically, we arrive at the same conclusion: increasing ocean temperatures correlate with a clear decline in kelp growth.
 
 ## Problem 2. Personal data
 

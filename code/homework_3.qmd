@@ -77,22 +77,31 @@ Ocean temperature increase leads to an approximate decrease in kelp elongation.
 ```{r}
 # qq plot for kelp elongation data 
 qq_kelp <- ggplot(data = kelp, aes(sample = kelp_elong)) +
+  # creating qq points, adding custom color
   stat_qq(color = "palegreen4", alpha = 0.7) +
+  # qq_line, adding custom color
   stat_qq_line(color = "orchid3", linewidth = 1) +
-  labs(title = "Normal Q-Q: Kelp Elongation", x = "Theoretical Quantiles", y = "Sample Quantiles") +
+  # adding title and axes
+  labs(title = "Normal Q-Q: Kelp Elongation", 
+       x = "Theoretical Quantiles", 
+       y = "Sample Quantiles") +
+  # adding a theme
   theme_minimal()
 # qq plot for ocean temperature
 qq_temp <- ggplot(data = kelp, aes(sample = temp_c)) +
+  # creating qq points, adding custom color
   stat_qq(color = "palegreen4", alpha = 0.7) +
+  # qq_line, adding custom color
   stat_qq_line(color = "orchid3", linewidth = 1) +
-  labs(title = "Normal Q-Q: Ocean Temperature", x = "Theoretical Quantiles", y = "Sample Quantiles") +
+  # adding title and axes
+  labs(title = "Normal Q-Q: Ocean Temperature", 
+       x = "Theoretical Quantiles", 
+       y = "Sample Quantiles") +
+  # adding a the,e
   theme_minimal()
 # looking at both plots 
-
 qq_kelp 
-
 qq_temp
-
 ```
 
 **Assumptions Assessment**
